@@ -11,7 +11,7 @@ const About = () => {
         span="world’s information and Easy "
         btnname="Contact us"
         imgsrc={images}
-        visit="/Contactus"
+        visit="/contact"
       />
     </>
   );

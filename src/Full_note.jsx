@@ -22,9 +22,8 @@ const Full_note = () => {
 
   return (
     <div>
-      <G_Header />
       <G_createnote passnote={addnote} />
-
+      
       {additem.map((val, index) => {
         return (
           <G_note 

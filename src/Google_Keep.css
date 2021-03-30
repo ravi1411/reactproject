@@ -23,14 +23,13 @@
   top: 0px !important;
   height: 200px;
   width: 300px;
-  background-color: azure;
-  box-shadow: 5px 5px 2.5px black;
+  box-shadow: 0px 0px 7px 0px black;
   padding: 0px !important;
 }
 .title_text {
   font-family: "Akaya Telivigala", cursive !important;
   font-size: 30px !important;
-  padding: 0px !important;
+  padding-left: 20px;
 }
 
 .title_msg {
@@ -41,44 +40,87 @@
   width: 100%;
   height: 120px;
   font-size: 17px !important;
-  padding: 0px !important;
+  padding-left: 20px;
 }
 
 .plusbtn {
   float: right;
-
-  top: -46px;
-
-  left: 8px;
+  top: -8px;
+  left: 23px;
+  color: rgb(255, 174, 0) !important;
+  box-shadow: 5px 5px 5px black;
+  min-width: 49px;
+  min-height: 49px;
+  border-radius: 50% !important;
+  background-color: white !important;
+  box-shadow: 0px 0px 5px black;
+  padding: 0px 0px !important;
 }
+
 .iconofplus {
-  font-size: 65px !important;
+  font-size: 29px !important;
 
-  float: right !important;
+  min-width: 15px !important;
+  min-height: 25px !important;
 }
-.iconofplus:hover {
-  background-color: transparent;
+.plusbtn:hover {
+  background-color: rgb(255, 174, 0) !important;
+  color: white !important;
 }
 
 .note {
+  overflow: hidden;
   margin-top: 10px;
-
   height: 150px;
-
   width: 200px;
-
-  background-color: whitesmoke;
-
-  box-shadow: 2px 2px 1px black;
-
+  background-color: white;
+  box-shadow: 0px 0px 4px 1px black;
   float: left;
-
-  margin-left: 20px;
+  margin-left: 35px;
+  position: relative;
+  overflow-wrap: break-word;
+  border-radius: 4px;
 }
 .noteofheading {
   padding-top: 10px;
+  overflow: hidden !important;
+}
+.noteofmsg {
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
 }
 
+.btn_of_del {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 50%;
+  border: none;
+  color: red;
+  background-color: white;
+  background-color: transparent;
+  box-shadow: 0px 0px 5px black;
+}
+.btn_of_del:hover {
+  background-color: red;
+  color: white;
+}
 .delofnode {
-  font-size: 25px;
+  font-size: 35px !important;
+  width: 25px !important;
+}
+.noteofheading {
+  overflow-wrap: break-word;
+}
+
+.combine_of_icon_btn {
+  margin-top: 90px;
+}
+.icon_3 {
+  font-size: 4rem;
+}
+.social .fa {
+  font-size: 4rem;
+  padding: 3rem;
 }

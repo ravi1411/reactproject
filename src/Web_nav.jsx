@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import MenuOpenIcon from "@material-ui/icons/MenuOpen";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import HomeIcon from "@material-ui/icons/Home";
+import InfoIcon from "@material-ui/icons/Info";
+import MailSharpIcon from "@material-ui/icons/MailSharp";
 
 const Web_nav = (props) => {
   const [form, setform] = useState(props.for);
   const [name, setname] = useState(form.user);
+
+  const [sider, setsider] = useState(false);
 
   const InputEvent = (e) => {
     const { name, value } = e.target;
@@ -14,87 +21,134 @@ const Web_nav = (props) => {
       };
     });
   };
-  const changeDone =()=>{
+  const ChangeDone = () => {
     setname(form.user);
-  }
+  };
 
-  console.log(form);
+  const showsider = () => setsider(!sider);
+
+  const fun_logout = () => {
+    props.passdetail();
+  };
 
   return (
-    <>
-      <nav className=" navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid ">
+    <div>
+      <div className="navbar">
+        <div className="menu-bars">
+          <MenuOpenIcon className=" appleicon" onClick={showsider} />
           <span
-            className="navbar-brand"
+            className="name_in_webnav"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
             {name}
           </span>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+        </div>
+        <div className="div_of_logout">
+          <h4
+            className="logo_of_logout "
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal_logout"
           >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link "
-                  activeClassName="activelink"
-                  exact
-                  to="/"
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="activelink"
-                  className="nav-link"
-                  to="/about"
-                >
-                  About
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="activelink"
-                  className="nav-link"
-                  to="/service"
-                >
-                  Service
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="activelink"
-                  className="nav-link"
-                  to="/note"
-                >
-                  Note
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="activelink"
-                  className="nav-link"
-                  to="/login"
-                >
-                  Login
-                </NavLink>
-              </li>
-            </ul>
+            <i class="fa fa-sign-out icon_of_logout" aria-hidden="true"></i>
+            {` `} Logout
+          </h4>
+        </div>
+      </div>
+
+      {/* --------------- Logout modal----------------- */}
+      <div
+        class="modal fade"
+        id="exampleModal_logout"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Logout
+              </h5>
+            </div>
+            <div class="modal-body">Are you sure want to logout ?</div>
+
+            <div class="modal-footer">
+              <button
+                data-bs-dismiss="modal"
+                type="button"
+                class="btn btn-primary"
+                onClick={fun_logout}
+              >
+                Yes
+              </button>
+
+              <button
+                type="button"
+                data-bs-dismiss="modal"
+                class="btn btn-secondary"
+              >
+                No
+              </button>
+            </div>
           </div>
         </div>
+      </div>
+      {/* --------------- Logout modal over----------------- */}
+
+      <nav className={sider ? "nav-menu active" : "nav-menu"}>
+        <ul className="nav-menu-items" onClick={showsider}>
+          <li
+            className="topbar_of_slider"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <span>
+              <AccountCircleIcon className="topbaruser" />
+            </span>
+            {form.email}
+          </li>
+
+          {/* <li className="navbar-toggle ">
+            <div className="menu-bars">
+              <span className="apple_ixon_span">
+                <AppleIcon className="appleicon" onClick={showsider} />
+              </span>
+            </div>
+          </li> */}
+
+          <li className="nav-text Home_nav ">
+            <NavLink to="/" exact>
+              <HomeIcon className="icon5" />
+              Home
+            </NavLink>
+          </li>
+          <li className="nav-text" onClick={showsider}>
+            <NavLink to="/about" exact>
+              <InfoIcon className="icon5" />
+              About
+            </NavLink>
+          </li>
+          <li className="nav-text" onClick={showsider}>
+            <NavLink to="/service" exact>
+              <i class="fa fa-bookmark  icon5" aria-hidden="true"></i> Service
+            </NavLink>
+          </li>
+          <li className="nav-text" onClick={showsider}>
+            <NavLink to="/note" exact>
+              <i class="fa fa-sticky-note icon5" aria-hidden="true"></i>Note
+            </NavLink>
+          </li>
+          <li className="nav-text" onClick={showsider}>
+            <NavLink to="/contact" exact className="sidebaer_a_link">
+              <MailSharpIcon className="icon5" />
+              Contact
+            </NavLink>
+          </li>
+        </ul>
       </nav>
 
+      {/* sidenavbar  end */}
       {/* <!-- Modal --> */}
       <div
         class="modal fade"
@@ -180,7 +234,7 @@ const Web_nav = (props) => {
                 type="button"
                 class="btn btn-primary"
                 data-bs-dismiss="modal"
-                onClick={changeDone}
+                onClick={ChangeDone}
               >
                 Save
               </button>
@@ -188,7 +242,88 @@ const Web_nav = (props) => {
           </div>
         </div>
       </div>
-    </>
+
+      <div>
+        {/* comment */}
+        {/* <nav className=" navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container-fluid ">
+          <span
+            className="navbar-brand"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <AppleIcon className="icon" />
+            {name}
+          </span>
+          <button
+            className="navbar-toggler "
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className=" collapse navbar-collapse"
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav ml-auto  mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link "
+                  activeClassName="activelink"
+                  exact
+                  to="/"
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="activelink"
+                  className="nav-link"
+                  to="/about"
+                >
+                  About
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="activelink"
+                  className="nav-link"
+                  to="/service"
+                >
+                  Service
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="activelink"
+                  className="nav-link"
+                  to="/note"
+                >
+                  Note
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="activelink"
+                  className="nav-link"
+                  to="/contact"
+                >
+                  Contact
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> */}
+        {/* sidenavbar start */}
+      </div>
+    </div>
   );
 };
 

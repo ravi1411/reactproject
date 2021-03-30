@@ -11,7 +11,7 @@ const Web_Temprature = () => {
    
     const fechapi=async()=>{
 
-        const url=`http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=93c1a6a2bca8a9f4a69e0aa162dc5725`;
+        const url=`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=93c1a6a2bca8a9f4a69e0aa162dc5725`;
         const responce= await fetch(url);
         const resjson= await responce.json();
         

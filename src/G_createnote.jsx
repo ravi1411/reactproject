@@ -1,5 +1,5 @@
 import { Input } from "@material-ui/core";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
 import Button from "@material-ui/core/Button";
 import React, { useState } from "react";
 
@@ -14,8 +14,7 @@ const G_createnote = (props) => {
 
     setnote((preval) => {
       return {
-        ...preval,
-        [name]: value,
+        ...preval,[name]: value,
       };
     });
   };
@@ -31,14 +30,14 @@ const G_createnote = (props) => {
     <>
       <div className="createnote">
         <div className="box_create_note">
-          <form >
+          <form autoComplete="off">
             <Input
               name="title"
+              required
               value={note.title}
               onChange={inputevent}
               type="text"
               placeholder="Title"
-              
               className="title_text"
             />
 
@@ -53,7 +52,7 @@ const G_createnote = (props) => {
             ></textarea>
           </form>
           <Button className="plusbtn" onClick={addevent}>
-            <AddCircleOutlineIcon className="iconofplus" />
+            <AddToPhotosIcon className="iconofplus" />
           </Button>
         </div>
       </div>

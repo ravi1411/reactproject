@@ -9,9 +9,13 @@ const G_note = (props) => {
   return (
     <>
       <div className="note">
-        <h2 className="noteofheading">{props.title}</h2>
-        <p>{props.content}</p>
-        <DeleteForeverIcon className="delofnode" onClick={plusthicallkre} />
+        <h4 className="noteofheading">{props.title}</h4>
+        <p className="noteofmsg">{props.content}</p>
+        <div className="combine_of_icon_btn">
+        <button className="btn_of_del" onClick={plusthicallkre}>
+          <DeleteForeverIcon className="delofnode" />
+        </button>
+        </div>
       </div>
     </>
   );
